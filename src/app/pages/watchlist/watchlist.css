@@ -1,0 +1,53 @@
+.watchlist-page {
+  padding: 2rem 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.count {
+  color: #888;
+  font-size: 0.9rem;
+  margin: 0 0 1.5rem;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 5rem 1rem;
+  color: #888;
+}
+
+.empty-state p {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+}
+
+.browse-link {
+  display: inline-block;
+  background: #e50914;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.browse-link:hover {
+  background: #c40812;
+}

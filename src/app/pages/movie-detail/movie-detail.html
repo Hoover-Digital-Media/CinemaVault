@@ -1,0 +1,67 @@
+<div class="detail-page">
+  @if (loading()) {
+    <div class="status-message">Loading…</div>
+  } @else if (error()) {
+    <div class="status-message error">{{ error() }}</div>
+  } @else if (movie(); as m) {
+    <div class="backdrop" [style.background-image]="'url(' + backdropUrl(m.backdrop_path) + ')'"></div>
+
+    <div class="detail-content">
+      <div class="poster-col">
+        <img [src]="posterUrl(m.poster_path)" [alt]="m.title" class="detail-poster" />
+      </div>
+
+      <div class="info-col">
+        <h1 class="movie-title">{{ m.title }}</h1>
+
+        @if (m.tagline) {
+          <p class="tagline">{{ m.tagline }}</p>
+        }
+
+        <div class="meta-row">
+          <span class="rating">★ {{ m.vote_average.toFixed(1) }}</span>
+          <span class="year">{{ releaseYear }}</span>
+          @if (formattedRuntime) {
+            <span class="runtime">{{ formattedRuntime }}</span>
+          }
+        </div>
+
+        <div class="genres">
+          @for (genre of m.genres; track genre.id) {
+            <span class="genre-tag">{{ genre.name }}</span>
+          }
+        </div>
+
+        @if (m.overview) {
+          <p class="overview">{{ m.overview }}</p>
+        }
+
+        <button
+          class="watchlist-btn"
+          [class.in-watchlist]="watchlist.isInWatchlist(m.id)"
+          (click)="toggleWatchlist()"
+        >
+          @if (watchlist.isInWatchlist(m.id)) {
+            ✓ In Watchlist
+          } @else {
+            + Add to Watchlist
+          }
+        </button>
+
+        @if (m.credits && m.credits.cast.length > 0) {
+          <div class="cast-section">
+            <h2 class="cast-title">Cast</h2>
+            <div class="cast-list">
+              @for (member of m.credits.cast.slice(0, 8); track member.id) {
+                <div class="cast-member">
+                  <strong>{{ member.name }}</strong>
+                  <span>{{ member.character }}</span>
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>

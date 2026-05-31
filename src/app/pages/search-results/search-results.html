@@ -1,0 +1,26 @@
+<div class="search-page">
+  @if (query()) {
+    <h1 class="page-title">
+      @if (loading()) {
+        Searching for "{{ query() }}"…
+      } @else {
+        {{ totalResults() }} result{{ totalResults() !== 1 ? 's' : '' }} for "{{ query() }}"
+      }
+    </h1>
+  } @else {
+    <h1 class="page-title">Search</h1>
+    <p class="hint">Use the search bar above to find movies.</p>
+  }
+
+  @if (loading()) {
+    <div class="status-message">Loading…</div>
+  } @else if (movies().length > 0) {
+    <div class="movie-grid">
+      @for (movie of movies(); track movie.id) {
+        <app-movie-card [movie]="movie" />
+      }
+    </div>
+  } @else if (query() && !loading()) {
+    <div class="status-message">No results found for "{{ query() }}".</div>
+  }
+</div>

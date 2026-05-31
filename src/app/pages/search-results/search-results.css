@@ -1,0 +1,29 @@
+.search-page {
+  padding: 2rem 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 1.5rem;
+}
+
+.hint {
+  color: #888;
+  margin: 0 0 1.5rem;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.status-message {
+  text-align: center;
+  color: #888;
+  padding: 4rem 1rem;
+}

@@ -1,0 +1,41 @@
+.home-page {
+  padding: 2rem 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.status-message {
+  text-align: center;
+  color: #888;
+  padding: 4rem 1rem;
+  font-size: 1rem;
+}
+
+.status-message.error {
+  color: #e50914;
+}
+
+@media (min-width: 768px) {
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}

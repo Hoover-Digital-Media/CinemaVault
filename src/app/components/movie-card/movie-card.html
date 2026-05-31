@@ -1,0 +1,25 @@
+<a [routerLink]="['/movies', movie.id]" class="movie-card">
+  <div class="poster-wrapper">
+    <img
+      [src]="posterUrl(movie.poster_path)"
+      [alt]="movie.title"
+      class="poster"
+      loading="lazy"
+    />
+    <button
+      class="watchlist-btn"
+      [class.in-watchlist]="watchlist.isInWatchlist(movie.id)"
+      (click)="toggleWatchlist($event)"
+      [attr.aria-label]="watchlist.isInWatchlist(movie.id) ? 'Remove from watchlist' : 'Add to watchlist'"
+    >
+      @if (watchlist.isInWatchlist(movie.id)) { ✓ } @else { + }
+    </button>
+  </div>
+  <div class="card-info">
+    <h3 class="card-title">{{ movie.title }}</h3>
+    <div class="card-meta">
+      <span class="rating">★ {{ rating }}</span>
+      <span class="year">{{ year }}</span>
+    </div>
+  </div>
+</a>

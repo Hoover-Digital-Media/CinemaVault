@@ -1,0 +1,48 @@
+<div class="browse-page">
+  <div class="browse-header">
+    <h1 class="page-title">Browse Movies</h1>
+    <form [formGroup]="form" class="filter-form">
+      <select formControlName="genre" class="filter-select">
+        <option value="">All Genres</option>
+        @for (genre of genres(); track genre.id) {
+          <option [value]="genre.id">{{ genre.name }}</option>
+        }
+      </select>
+
+      <select formControlName="year" class="filter-select">
+        <option value="">All Years</option>
+        @for (year of years; track year) {
+          <option [value]="year">{{ year }}</option>
+        }
+      </select>
+
+      <select formControlName="sortBy" class="filter-select">
+        @for (opt of sortOptions; track opt.value) {
+          <option [value]="opt.value">{{ opt.label }}</option>
+        }
+      </select>
+    </form>
+  </div>
+
+  @if (loading()) {
+    <div class="status-message">Loading…</div>
+  } @else if (movies().length === 0) {
+    <div class="status-message">No movies found. Try different filters.</div>
+  } @else {
+    <div class="movie-grid">
+      @for (movie of movies(); track movie.id) {
+        <app-movie-card [movie]="movie" />
+      }
+    </div>
+
+    <div class="pagination">
+      <button (click)="prevPage()" [disabled]="currentPage() === 1" class="page-btn">
+        ← Prev
+      </button>
+      <span class="page-info">Page {{ currentPage() }} of {{ totalPages() }}</span>
+      <button (click)="nextPage()" [disabled]="currentPage() === totalPages()" class="page-btn">
+        Next →
+      </button>
+    </div>
+  }
+</div>

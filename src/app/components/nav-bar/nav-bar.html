@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <a routerLink="/" class="brand">🎬 CinemaVault</a>
+
+  <div class="nav-links">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+    <a routerLink="/browse" routerLinkActive="active">Browse</a>
+    <a routerLink="/watchlist" routerLinkActive="active">
+      Watchlist
+      @if (watchlist.count() > 0) {
+        <span class="badge">{{ watchlist.count() }}</span>
+      }
+    </a>
+  </div>
+
+  <form class="search-form" (submit)="onSearch(searchInput.value); searchInput.value = ''">
+    <input
+      #searchInput
+      type="search"
+      placeholder="Search movies…"
+      class="search-input"
+    />
+    <button type="submit" class="search-btn" aria-label="Search">🔍</button>
+  </form>
+</nav>
