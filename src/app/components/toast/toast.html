@@ -1,0 +1,6 @@
+@if (toastService.toast(); as toast) {
+  <div class="toast" [class.error]="toast.type === 'error'" role="status">
+    {{ toast.message }}
+    <button class="dismiss" (click)="toastService.dismiss()" aria-label="Dismiss">✕</button>
+  </div>
+}
