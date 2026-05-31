@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" fill="#141414"/>
+  <!-- Clapper top (red with white diagonal stripes) -->
+  <clipPath id="clap">
+    <rect x="3" y="3" width="26" height="9" rx="3"/>
+  </clipPath>
+  <rect x="3" y="3" width="26" height="9" rx="3" fill="#e50914"/>
+  <g clip-path="url(#clap)" fill="#fff" opacity="0.85">
+    <polygon points="6,3 10,3 6,12 3,12 3,8"/>
+    <polygon points="13,3 17,3 13,12 9,12"/>
+    <polygon points="20,3 24,3 20,12 16,12"/>
+    <polygon points="27,3 29,3 29,8 26,12 23,12"/>
+  </g>
+  <!-- Clapper hinge line -->
+  <rect x="3" y="11" width="26" height="1.5" fill="#0d0d0d"/>
+  <!-- Board body -->
+  <rect x="3" y="14" width="26" height="15" rx="3" fill="#1e1e1e"/>
+  <!-- Lines on board -->
+  <rect x="7" y="18" width="18" height="2" rx="1" fill="#333"/>
+  <rect x="7" y="23" width="18" height="2" rx="1" fill="#333"/>
+</svg>
