@@ -26,7 +26,7 @@ jobs:
           sed -i "s/tmdbApiKey: ''/tmdbApiKey: '${{ secrets.TMDB_API_KEY }}'/" src/environments/environment.prod.ts
 
       - name: Build
-        run: npm run build -- --base-href /cinema-vault/
+        run: npm run build -- --base-href /CinemaVault/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
